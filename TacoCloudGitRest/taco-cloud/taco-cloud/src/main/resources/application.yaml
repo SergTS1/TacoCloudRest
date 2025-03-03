@@ -1,0 +1,20 @@
+server:
+  port: 8020
+
+spring:
+  datasource:
+    url: jdbc:h2:file:./data/testdb;DB_CLOSE_ON_EXIT=FALSE
+    generate-unique-name: false
+    name: tacocloud
+    username: sa
+    password: ""
+
+  security:
+    oauth2:
+      client:
+        registration:
+          facebook:
+            client-id: <facebook client id>
+            clientSecret: <facebook client secret>
+            scope: email, public_profile
+
