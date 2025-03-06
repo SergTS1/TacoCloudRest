@@ -1,0 +1,18 @@
+# Java / Maven / Gradle / IntelliJ IDEA / Build
+target/
+out/
+build/
+*.class
+*.jar
+*.war
+*.ear
+
+# IntelliJ IDEA project files
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# OS/Editor specific
+.DS_Store
+Thumbs.db
