@@ -32,19 +32,13 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         return http
-                .authorizeHttpRequests()
-                .requestMatchers("/design", "/orders").hasRole("USER")
-                .requestMatchers("/", "/**").permitAll()
-//                .and()
-//                .formLogin()
-                .and()
-                .oauth2Login()
-                .loginPage("/login")
-                .defaultSuccessUrl("/design")
-                .and()
-                .logout()
-                .logoutSuccessUrl("/")
-                .and()
+                .authorizeHttpRequests(auth -> auth
+                        .requestMatchers("/h2-console/**").permitAll()
+                        .anyRequest().authenticated()
+                )
+                .csrf(csrf -> csrf.disable())
+                .headers(headers -> headers.frameOptions().disable())
                 .build();
+
     }
 }
