@@ -21,8 +21,26 @@ spring:
     oauth2:
       client:
         registration:
-          facebook:
-            client-id: <facebook client id>
-            clientSecret: <facebook client secret>
-            scope: email, public_profile
+          taco-cloud-client:
+            provider: tacocloud
+            client-id: taco-admin-client
+            client-secret: secret
+            authorization-grant-type: authorization_code
+            redirect-uri: "http://127.0.0.1:8020/login/oauth2/code/{registrationId}"
+            scope: writeIngredients, deleteIngredients, openid
+        provider:
+          tacocloud:
+            issuer-uri: http://127.0.0.1:9000/
+
+#  security:
+#    oauth2:
+#      client:
+#        registration:
+#          facebook:
+#            client-id: <facebook client id>
+#            clientSecret: <facebook client secret>
+#            scope: email, public_profile
+#      resourceserver:
+#        jwt:
+#          jwk-set-uri: http://localhost:9000/oauth2/jwks
 
