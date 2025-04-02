@@ -32,3 +32,5 @@ spring:
   kafka:
     bootstrap-servers:
       - localhost:9092
+    template:
+      default-topic: tacocloud.orders.topic
